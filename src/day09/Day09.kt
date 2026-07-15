@@ -7,8 +7,10 @@ import kotlin.math.abs
 import kotlin.math.sign
 
 fun solve(): Solutions<Int> {
-    val input = input(9)
+    val day = "09"
+    val input = input(day)
     return Solutions(
+        day,
         Solution(part1(input), 6464),
         Solution(part2(input), 2604)
     )

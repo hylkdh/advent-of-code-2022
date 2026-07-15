@@ -5,11 +5,13 @@ import Solutions
 import input
 
 fun solve(): Solutions<Int> {
-    val input = input(13)
+    val day = "13"
+    val input = input(day)
         .chunked(3) {
             it[0] to it[1]
         }
     return Solutions(
+        day,
         Solution(part1(input), 5684),
         Solution(part2(input), 22932)
     )

@@ -5,8 +5,10 @@ import Solutions
 import input
 
 fun solve(): Solutions<Int> {
-    val input = input(4)
+    val day = "04"
+    val input = input(day)
     return Solutions(
+        day,
         Solution(part1(input), 494),
         Solution(part2(input), 833)
     )

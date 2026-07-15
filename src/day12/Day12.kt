@@ -8,12 +8,14 @@ private const val START_CHAR = 'a'.minus(1)
 private const val END_CHAR = 'z'.plus(1)
 
 fun solve(): Solutions<Int> {
-    val input = input(12)
+    val day = "12"
+    val input = input(day)
         .map {
             it.replace('S', START_CHAR)
                 .replace('E', END_CHAR)
         }
     return Solutions(
+        day,
         Solution(part1(input), 370),
         Solution(part2(input), 363)
     )

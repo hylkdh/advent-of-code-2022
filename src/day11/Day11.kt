@@ -5,10 +5,12 @@ import Solutions
 import input
 
 fun solve(): Solutions<Long> {
-    val input = input(11)
+    val day = "11"
+    val input = input(day)
         .chunked(7)
         .map { it.joinToString("\n") }
     return Solutions(
+        day,
         Solution(part1(input), 58794L),
         Solution(part2(input), 20151213744L)
     )

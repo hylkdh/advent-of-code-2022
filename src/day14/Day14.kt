@@ -7,7 +7,8 @@ import kotlin.math.max
 import kotlin.math.min
 
 fun solve(): Solutions<Int> {
-    val input = input(14)
+    val day = "14"
+    val input = input(day)
         .flatMap { line ->
             line.split(" -> ")
                 .map { coordinate ->
@@ -19,6 +20,7 @@ fun solve(): Solutions<Int> {
         }.toSet()
 
     return Solutions(
+        day,
         Solution(part1(input), 625),
         Solution(part2(input), 25193)
     )

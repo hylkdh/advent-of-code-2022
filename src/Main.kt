@@ -22,25 +22,26 @@ fun main() {
         { day13.solve() },
         { day14.solve() },
         { day15.solve() },
-    ).forEachIndexed { index, solutions ->
+    ).forEach { solutions ->
         val timedValue = measureTimedValue {
             try {
-                solutions()
+                solutions.invoke()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
         println(
-            "Day " + (index + 1).toString().padStart(2, '0') + ": "
-                    + timedValue.value.toString()
-                    + timedValue.duration.inWholeMilliseconds.toString().padStart(10, ' ') + " ms"
+            timedValue.value.toString() +
+            timedValue.duration.inWholeMilliseconds.toString().padStart(10, ' ') + " ms"
         )
     }
     println(bar)
 }
 
-data class Solutions<T>(val part1: Solution<T>, val part2: Solution<T>) {
-    override fun toString(): String = part1.toString().padStart(13, ' ') + part2.toString().padStart(18, ' ')
+data class Solutions<T>(val day: String, val part1: Solution<T>, val part2: Solution<T>) {
+    override fun toString(): String = "Day $day:" +
+        part1.toString().padStart(13, ' ')  +
+        part2.toString().padStart(18, ' ')
 }
 
 data class Solution<T>(val actual: T, val expected: T) {
@@ -48,6 +49,6 @@ data class Solution<T>(val actual: T, val expected: T) {
     private fun icon(): String = if (actual == expected) "⭐" else "❌"
 }
 
-fun input(day: Int) =
-    File("src/day${day.toString().padStart(2, '0')}", "input.txt")
+fun input(day: String) =
+    File("src/day$day", "input.txt")
         .readLines()

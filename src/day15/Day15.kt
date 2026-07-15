@@ -8,13 +8,15 @@ import kotlin.math.max
 import kotlin.math.min
 
 fun solve(): Solutions<Any> {
-    val input = input(15)
+    val day = "15"
+    val input = input(day)
     val sensors = input.map { line ->
         val match = Regex("^Sensor at x=(-?\\d+), y=(-?\\d+): closest beacon is at x=(-?\\d+), y=(-?\\d+)").find(line)!!
         val (xSensor, ySensor, xBeacon, yBeacon) = match.destructured
         Sensor(Point(xSensor.toInt(), ySensor.toInt()), Point(xBeacon.toInt(), yBeacon.toInt()))
     }
     return Solutions(
+        day,
         Solution(part1(sensors), 5511201),
         Solution(part2(sensors), 11318723411840L)
     )
